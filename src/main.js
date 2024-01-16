@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 
 const main = () => {
   return (
-    <>
-      <div className="bg-blue-300  h-screen">Hello</div>
-    </>
+    <div className="bg-blue-900  h-screen w-full">
+      <p>lorem100</p>
+    </div>
   );
 };
 
