@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../public/images/logo.png";
 const Header = () => {
   return (
-    <div className="h-20 w-full flex items-center justify-between bg-white px-5">
+    <div className="h-20 w-full flex items-center justify-between bg-white px-8 shadow-md">
       <div className="flex items-center">
         <img className="h-16" src={logo} alt="TandooriJs_Logo" />
         <h2 className="font-[Pacifico] text-2xl">TandooriJs.</h2>
