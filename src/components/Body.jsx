@@ -5,14 +5,14 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const getRestaurants = async () => {
     try {
-      const response = await fetch(
-        "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D28.7040592%26lng%3D77.10249019999999%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
-      );
+      const url =
+        "https://corsproxy.org/?" +
+        encodeURIComponent(
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+      const response = await fetch(url);
       const data = await response.json();
-      console.log(
-        data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
+      console.log(data?.data?.cards);
       setAllRestaurants(
         data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
