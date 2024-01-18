@@ -34,7 +34,7 @@ const Body = () => {
   return (
     <div className="w-11/12 min-h-[80vh]  flex items-center flex-col">
       <Carousel carouselCards={carouselCards} />
-      {/* <RestaurantList restaurants={allRestaurants} /> */}
+      <RestaurantList restaurants={allRestaurants} />
     </div>
   );
 };
