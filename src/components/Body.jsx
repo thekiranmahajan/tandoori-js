@@ -13,9 +13,9 @@ const Body = () => {
         );
       const response = await fetch(url);
       const data = await response.json();
-      console.log(
-        data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
-      );
+      // console.log(
+      //   data?.data?.cards[0]?.card?.card
+      // );
       setAllRestaurants(
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
