@@ -2,11 +2,50 @@ import React, { useState, useEffect, useRef } from "react";
 import { CARD_URL } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 const Carousel = ({ carouselCards }) => {
   const carousel = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
- 
+  const maxScrollWidth = useRef(0);
 
+  const movePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevState) => prevState - 1);
+    }
+  };
+
+  const moveNext = () => {
+    if (
+      carousel.current !== null &&
+      carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
+    ) {
+      setCurrentIndex((prevState) => prevState + 1);
+    }
+  };
+
+  const isDisabled = (direction) => {
+    if (direction === "prev") {
+      return currentIndex <= 0;
+    }
+    if (direction === "next" && carousel.current !== null) {
+      return (
+        carousel.current.offsetWidth * currentIndex >= maxScrollWidth.current
+      );
+    }
+
+    return false;
+  };
+
+  useEffect(() => {
+    if (carousel !== null && carousel.current !== null) {
+      carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
+    }
+  }, [currentIndex]);
+  useEffect(() => {
+    maxScrollWidth.current = carousel.current
+      ? carousel.current.scrollWidth - carousel.current.offsetWidth
+      : 0;
+  }, []);
 
   return (
     <div className="w-11/12 h-64  flex flex-col mt-10 ">
@@ -14,10 +53,18 @@ const Carousel = ({ carouselCards }) => {
 
       <div className="w-full h-52 relative overflow-hidden">
         <div className="flex items-center justify-between absolute  w-full h-full px-10">
-          <button className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed ">
+          <button
+            onClick={movePrev}
+            disabled={isDisabled("prev")}
+            className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed "
+          >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
-          <button className="z-10 h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105">
+          <button
+            onClick={moveNext}
+            disabled={isDisabled("next")}
+            className="z-10 h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105"
+          >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
