@@ -9,38 +9,30 @@ const Carousel = ({ carouselCards }) => {
   const maxScrollWidth = useRef(0);
 
   const movePrev = () => {
+    console.log("prevbtn clicked!");
     if (currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1);
+      setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
 
   const moveNext = () => {
+    console.log("nextbtn clicked!", carousel);
+
     if (
       carousel.current !== null &&
-      carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
+      carousel.current.offsetWidth * currentIndex < maxScrollWidth.current
     ) {
-      setCurrentIndex((prevState) => prevState + 1);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
     }
-  };
-
-  const isDisabled = (direction) => {
-    if (direction === "prev") {
-      return currentIndex <= 0;
-    }
-    if (direction === "next" && carousel.current !== null) {
-      return (
-        carousel.current.offsetWidth * currentIndex >= maxScrollWidth.current
-      );
-    }
-
-    return false;
   };
 
   useEffect(() => {
+    console.log("useEffect currentIndex:", currentIndex);
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
   }, [currentIndex]);
+
   useEffect(() => {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
@@ -55,15 +47,13 @@ const Carousel = ({ carouselCards }) => {
         <div className="flex items-center justify-between absolute  w-full h-full px-10">
           <button
             onClick={movePrev}
-            disabled={isDisabled("prev")}
             className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed "
           >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <button
             onClick={moveNext}
-            disabled={isDisabled("next")}
-            className="z-10 h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105"
+            className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed "
           >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
@@ -71,7 +61,7 @@ const Carousel = ({ carouselCards }) => {
 
         <div
           ref={carousel}
-          className="h-full pl-5 flex  gap-4 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
+          className="h-full w-full pl-5 flex  gap-4 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
         >
           {carouselCards.map((carouselCard) => (
             <img
