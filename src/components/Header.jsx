@@ -7,7 +7,8 @@ const Header = () => {
         <img className="h-16" src={logo} alt="TandooriJs_Logo" />
         <h2 className="font-[Pacifico] text-2xl">TandooriJs.</h2>
       </div>
-      <div className="flex items-center justify-around h-full max-w-[50%]   font-semibold font-[Montserrat] p-10 gap-10">
+
+      <div className="flex items-center justify-around h-full max-w-[50%]   font-semibold font-[Montserrat] p-10 gap-10 sm:hidden ">
         <a href="#">Home</a>
         <a href="#">Search</a>
         <a href="#">About</a>
