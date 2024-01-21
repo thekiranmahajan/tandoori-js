@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import RestaurantList from "./RestaurantList";
 import SearchBar from "./SearchBar";
+import ShimmerUI from "./ShimmerUI";
 
 const Body = () => {
   const [carouselCards, setCarouselCards] = useState([]);
@@ -50,15 +51,19 @@ const Body = () => {
 
   return (
     <div className="w-11/12 min-h-[80vh]  flex items-center flex-col">
-      <Carousel carouselCards={carouselCards} />
-
-      <SearchBar
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onSearch={onSearch}
-      />
-
-      <RestaurantList restaurants={filteredRestaurants} />
+      {allRestaurants.length <= 0 ? (
+        <ShimmerUI />
+      ) : (
+        <>
+          <Carousel carouselCards={carouselCards} />
+          <SearchBar
+            searchText={searchText}
+            setSearchText={setSearchText}
+            onSearch={onSearch}
+          />
+          <RestaurantList restaurants={filteredRestaurants} />
+        </>
+      )}
     </div>
   );
 };
