@@ -48,6 +48,7 @@ const Body = () => {
   useEffect(() => {
     getRestaurants();
   }, []);
+  if (!allRestaurants) return null;
 
   return (
     <div className="w-11/12 min-h-[80vh]  flex items-center flex-col">
