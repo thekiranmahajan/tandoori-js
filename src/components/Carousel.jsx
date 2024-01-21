@@ -6,67 +6,58 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Carousel = ({ carouselCards }) => {
   const carousel = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const maxScrollWidth = useRef(0);
 
   const movePrev = () => {
-    console.log("prevbtn clicked!");
     if (currentIndex > 0) {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
+    // console.log(currentIndex);
   };
 
   const moveNext = () => {
-    console.log("nextbtn clicked!", carousel);
-
-    if (
-      carousel.current !== null &&
-      carousel.current.offsetWidth * currentIndex < maxScrollWidth.current
-    ) {
+    if (currentIndex < carouselCards.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
+    // console.log(currentIndex, carouselCards.length);
   };
 
   useEffect(() => {
-    console.log("useEffect currentIndex:", currentIndex);
-    if (carousel !== null && carousel.current !== null) {
+    if (carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
+    console.log(carousel.current.scrollLeft);
   }, [currentIndex]);
 
-  useEffect(() => {
-    maxScrollWidth.current = carousel.current
-      ? carousel.current.scrollWidth - carousel.current.offsetWidth
-      : 0;
-  }, []);
-
   return (
-    <div className="w-11/12 h-64  flex flex-col mt-10 ">
-      <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
-
-      <div className="w-full h-52 relative overflow-hidden">
-        <div className="flex items-center justify-between absolute  w-full h-full px-10">
+    <div className="w-11/12 h-64 flex flex-col mt-10">
+      <div className="flex items-center justify-between w-full">
+        <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
+        <div className="flex gap-4">
           <button
             onClick={movePrev}
-            className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed "
+            className="h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={currentIndex === 0}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <button
             onClick={moveNext}
-            className="z-10  h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed "
+            className="h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
+            disabled={currentIndex === carouselCards.length - 1}
           >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
-
+      </div>
+      <div className="w-full h-52 relative overflow-hidden">
         <div
           ref={carousel}
-          className="h-full w-full pl-5 flex  gap-4 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
+          className="h-full pl-5 flex gap-4 overflow-hidden scroll-smooth"
         >
           {carouselCards.map((carouselCard) => (
             <img
               key={carouselCard.id}
-              className=" object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply snap-start"
+              className="object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply "
               src={CARD_URL + carouselCard.imageId}
               alt="card img"
             />
