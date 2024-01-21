@@ -24,6 +24,10 @@ const Body = () => {
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
+      setFilteredRestaurants(
+        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
       setCarouselCards(
         data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
       );
@@ -53,11 +57,8 @@ const Body = () => {
         setSearchText={setSearchText}
         onSearch={onSearch}
       />
-      {filteredRestaurants.length <= 0 ? (
-        <RestaurantList restaurants={allRestaurants} />
-      ) : (
-        <RestaurantList restaurants={filteredRestaurants} />
-      )}
+
+      <RestaurantList restaurants={filteredRestaurants} />
     </div>
   );
 };
