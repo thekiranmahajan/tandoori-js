@@ -3,6 +3,8 @@ import Carousel from "./Carousel";
 import RestaurantList from "./RestaurantList";
 import SearchBar from "./SearchBar";
 import ShimmerUI from "./ShimmerUI";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 const Body = () => {
   const [carouselCards, setCarouselCards] = useState([]);
@@ -48,11 +50,22 @@ const Body = () => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  if (!allRestaurants) return null;
 
   return (
     <div className="w-11/12 min-h-[80vh]  flex items-center flex-col">
-      {allRestaurants.length <= 0 ? (
+      {allRestaurants === undefined ? (
+        <div className="w-full h-[80vh] flex items-center justify-center flex-col">
+          <FontAwesomeIcon
+            className="text-[10rem] text-red-500 drop-shadow-xl"
+            icon={faTriangleExclamation}
+          />
+          <h1 className="mt-5 text-2xl text-center font-semibold">
+            Sorry😵
+            <br />
+            No restaurants are available <br /> Try again later...
+          </h1>
+        </div>
+      ) : allRestaurants?.length === 0 ? (
         <ShimmerUI />
       ) : (
         <>
