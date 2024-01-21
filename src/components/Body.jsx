@@ -18,14 +18,16 @@ const Body = () => {
       const response = await fetch(API_URL);
       const data = await response.json();
 
-      setAllRestaurants(
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-      setFilteredRestaurants(
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
+      const APICall = data?.data?.cards[1]?.card?.card?.gridElements
+        ?.infoWithStyle?.restaurants
+        ? data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants;
+
+      console.log(APICall);
+      setAllRestaurants(APICall);
+      setFilteredRestaurants(APICall);
       setCarouselCards(
         data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
       );
