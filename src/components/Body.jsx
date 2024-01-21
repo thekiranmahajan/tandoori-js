@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar";
 import ShimmerUI from "./ShimmerUI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { API_URL } from "../constants";
 
 const Body = () => {
   const [carouselCards, setCarouselCards] = useState([]);
@@ -14,13 +15,7 @@ const Body = () => {
 
   const getRestaurants = async () => {
     try {
-      const url =
-        "https://corsproxy.org/?" +
-        encodeURIComponent(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
-
-      const response = await fetch(url);
+      const response = await fetch(API_URL);
       const data = await response.json();
 
       setAllRestaurants(
