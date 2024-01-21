@@ -52,7 +52,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="w-11/12 min-h-[80vh]  flex items-center flex-col">
+    <div className="w-11/12 min-h-[80vh] flex items-center flex-col">
       {allRestaurants === undefined ? (
         <div className="w-full h-[80vh] flex items-center justify-center flex-col">
           <FontAwesomeIcon
