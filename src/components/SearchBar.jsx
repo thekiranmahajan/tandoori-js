@@ -1,6 +1,13 @@
 import React from "react";
 
 const SearchBar = ({ searchText, setSearchText, onSearch }) => {
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      onSearch(searchText);
+      console.log("Enter");
+    }
+  };
   return (
     <div className="w-11/12 h-20 flex items-center justify-between  p-4">
       <div className="flex">
@@ -8,6 +15,7 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
+          onKeyDown={handleEnter}
           className="max-w-60 h-10 p-5 rounded-lg outline-none border-none truncate"
           type="text"
           value={searchText}
