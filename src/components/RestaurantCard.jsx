@@ -1,5 +1,7 @@
 import React from "react";
 import { IMG_URL } from "../constants.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 const RestaurantCard = ({
   name,
   cloudinaryImageId,
@@ -19,9 +21,16 @@ const RestaurantCard = ({
       </div>
       <div className="w-full px-4 py-2">
         <h2 className="text-lg font-semibold truncate">{name}</h2>
-        <p className="font-semibold text-lg">
-          <span>{avgRating}</span> <span>{sla.deliveryTime}</span>mins
-        </p>
+        <div className="font-semibold text-lg flex gap-2 ">
+          <p className="flex items-center gap-1">
+            <FontAwesomeIcon className="text-green-500" icon={faStar} />
+            {avgRating}
+          </p>
+          <p className="flex items-center gap-1">
+            <FontAwesomeIcon className="text-[0.4rem]" icon={faCircle} />
+            {sla.deliveryTime} mins
+          </p>
+        </div>
         <p className="text-gray-500 truncate">{cuisines.join(", ")}</p>
         <p className="text-gray-500 truncate">{locality}</p>
       </div>
