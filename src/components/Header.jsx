@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../public/images/logo.png";
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="h-20 w-full flex items-center justify-between bg-white px-8 shadow-md">
       <div className="flex items-center">
@@ -13,6 +14,9 @@ const Header = () => {
         <a href="#">Search</a>
         <a href="#">About</a>
         <a href="#">Cart</a>
+        <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          {isLoggedIn ? "Logout" : "Login"}
+        </button>
       </div>
     </div>
   );
