@@ -1,1 +1,1 @@
-# TandooriJs: Food Ordering application 
+# Tandoori Js - Reacting to Your Hunger, One Byte at a Time! 
