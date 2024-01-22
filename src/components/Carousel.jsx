@@ -38,14 +38,14 @@ const Carousel = ({ carouselCards }) => {
         <div className="flex gap-4">
           <button
             onClick={movePrev}
-            className="h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
+            className="h-10 w-10 text-center rounded-full bg-[#1c1c24] text-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-yellow-300 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
             disabled={currentIndex === 0}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <button
             onClick={moveNext}
-            className="h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
+            className="h-10 w-10 text-center rounded-full bg-[#1c1c24] text-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-yellow-300 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
             disabled={currentIndex > maxIndex}
           >
             <FontAwesomeIcon icon={faArrowRight} />
