@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CARD_URL } from "../constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import CircularBtn from "./CircularBtn";
 
 const Carousel = ({ carouselCards }) => {
   if (!carouselCards) return null; // when api call on small screens remove Carousel
@@ -36,20 +37,16 @@ const Carousel = ({ carouselCards }) => {
       <div className="flex items-center justify-between w-full">
         <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
         <div className="flex gap-4">
-          <button
+          <CircularBtn
             onClick={movePrev}
-            className="h-10 w-10 text-center rounded-full bg-[#1c1c24] text-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-yellow-300 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
             disabled={currentIndex === 0}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </button>
-          <button
+            icon={faArrowLeft}
+          />
+          <CircularBtn
             onClick={moveNext}
-            className="h-10 w-10 text-center rounded-full bg-[#1c1c24] text-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-yellow-300 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
             disabled={currentIndex > maxIndex}
-          >
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+            icon={faArrowRight}
+          />
         </div>
       </div>
       <div className="w-full h-52 relative overflow-hidden">
