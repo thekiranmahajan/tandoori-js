@@ -16,17 +16,20 @@ const Carousel = ({ carouselCards }) => {
   };
 
   const moveNext = () => {
-    if (currentIndex < carouselCards.length - 1) {
+    const maxIndex =
+      Math.floor(carousel.current.scrollWidth / carousel.current.offsetWidth) -
+      1;
+    console.log(maxIndex);
+    if (currentIndex < maxIndex) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
-    // console.log(currentIndex, carouselCards.length);
   };
 
   useEffect(() => {
     if (carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
-    console.log(carousel.current.scrollLeft);
+    // console.log(carousel.current.scrollLeft);
   }, [currentIndex]);
 
   return (
