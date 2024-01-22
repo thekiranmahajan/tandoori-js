@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 const RestaurantList = ({ restaurants }) => {
   return (
-    <div className="mt-10 flex flex-wrap justify-center">
+    <div className="mt-10 flex flex-wrap justify-center font-[Montserrat]">
       {restaurants.length === 0 ? (
         <div className="flex items-center justify-center flex-col m-10">
           <FontAwesomeIcon

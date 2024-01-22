@@ -32,7 +32,7 @@ const Carousel = ({ carouselCards }) => {
   }, [currentIndex]);
 
   return (
-    <div className="w-11/12 h-64 flex flex-col mt-10">
+    <div className="w-11/12 h-64 flex flex-col mt-10 font-[Montserrat]">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
         <div className="flex gap-4">
