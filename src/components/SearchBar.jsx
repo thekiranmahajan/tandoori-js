@@ -1,16 +1,16 @@
 import React from "react";
+import Button from "./Button";
 
 const SearchBar = ({ searchText, setSearchText, onSearch }) => {
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       onSearch(searchText);
-      console.log("Enter");
     }
   };
   return (
     <div className="w-11/12 flex items-center justify-center p-4 font-[Montserrat] mt-10 flex-wrap gap-5">
-      <div className="flex">
+      <div className="flex items-center justify-center gap-0">
         <input
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -21,18 +21,14 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
           value={searchText}
           placeholder="Search you favorite restaurants"
         />
-        <button
+        <Button
+          btnText={"Search"}
           onClick={() => {
             onSearch(searchText);
           }}
-          className="px-3 py-2 bg-[#1c1c21] text-white rounded-lg ml-4 focus:ring-4 ring-gray-500 transition-transform hover:scale-95 focus:scale-100 cursor-pointer text-sm font-semibold text-center"
-        >
-          Search
-        </button>
+        />
       </div>
-      <button className="px-3 py-2 bg-[#1c1c21] text-white rounded-lg ml-4 focus:ring-4 ring-gray-500 transition-transform hover:scale-95 focus:scale-100 cursor-pointer text-sm font-semibold text-center">
-        Top Rated Restaurants
-      </button>
+      <Button btnText={"Top Rated Restaurants"} />
     </div>
   );
 };
