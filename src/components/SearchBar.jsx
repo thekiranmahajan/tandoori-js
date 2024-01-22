@@ -9,14 +9,14 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
     }
   };
   return (
-    <div className="w-11/12 h-20 flex items-center justify-between  p-4 font-[Montserrat]">
+    <div className="w-11/12 flex items-center justify-center p-4 font-[Montserrat] mt-10 flex-wrap gap-5">
       <div className="flex">
         <input
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
           onKeyDown={handleEnter}
-          className="max-w-60 h-10 p-5 rounded-lg outline-none border-none truncate"
+          className="w-72 h-10 px-3 py-2 rounded-lg outline-none border-none truncate text-sm"
           type="text"
           value={searchText}
           placeholder="Search you favorite restaurants"
@@ -25,12 +25,12 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
           onClick={() => {
             onSearch(searchText);
           }}
-          className="w-16 h-10 bg-fuchsia-500 text-white rounded-lg ml-4 focus:ring-4 ring-blue-400 transition-transform hover:scale-110 focus:scale-95 cursor-pointer"
+          className="px-3 py-2 bg-[#1c1c21] text-white rounded-lg ml-4 focus:ring-4 ring-gray-500 transition-transform hover:scale-95 focus:scale-100 cursor-pointer text-sm font-semibold text-center"
         >
           Search
         </button>
       </div>
-      <button className="py-2 px-4 bg-fuchsia-500 text-white rounded-lg ml-4 focus:ring-4 ring-blue-400 transition-transform hover:scale-110 focus:scale-95 cursor-pointer">
+      <button className="px-3 py-2 bg-[#1c1c21] text-white rounded-lg ml-4 focus:ring-4 ring-gray-500 transition-transform hover:scale-95 focus:scale-100 cursor-pointer text-sm font-semibold text-center">
         Top Rated Restaurants
       </button>
     </div>
