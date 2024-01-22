@@ -17,12 +17,14 @@ const Header = () => {
       <NavLinks className="hidden md:flex items-center justify-around h-full max-w-[50%] font-semibold font-[Montserrat] p-10 gap-10" />
       <button
         onClick={toggleMenu}
-        className="text-3xl transition-all duration-300 md:hidden"
+        className={`text-3xl md:hidden transition-transform duration-300 ease-in-out transform ${
+          isOpen ? "rotate-180" : ""
+        }`}
       >
-        <FontAwesomeIcon icon={isOpen ? faBurger : faXmark} />
+        <FontAwesomeIcon icon={isOpen ? faXmark : faBurger} />
       </button>
 
-      {!isOpen && (
+      {isOpen && (
         <NavLinks className=" bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-11/12 h-52  flex flex-wrap items-center justify-center flex-col md:hidden z-10  absolute m-auto left-0 right-0 top-24 text-xl gap-2" />
       )}
     </div>
