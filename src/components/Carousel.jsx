@@ -7,20 +7,20 @@ const Carousel = ({ carouselCards }) => {
   if (!carouselCards) return null; // when api call on small screens remove Carousel
   const carousel = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [maxIndex, setMaxIndex] = useState(0);
   const movePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
-    // console.log(currentIndex);
   };
 
   const moveNext = () => {
-    const maxIndex =
+    setMaxIndex(
       Math.floor(carousel.current.scrollWidth / carousel.current.offsetWidth) -
-      1;
+        1
+    );
     console.log(maxIndex);
-    if (currentIndex < maxIndex) {
+    if (currentIndex <= maxIndex) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
@@ -29,7 +29,6 @@ const Carousel = ({ carouselCards }) => {
     if (carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
-    // console.log(carousel.current.scrollLeft);
   }, [currentIndex]);
 
   return (
@@ -47,7 +46,7 @@ const Carousel = ({ carouselCards }) => {
           <button
             onClick={moveNext}
             className="h-10 w-10 text-center rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-green-400 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
-            disabled={currentIndex === carouselCards?.length - 1}
+            disabled={currentIndex > maxIndex}
           >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
