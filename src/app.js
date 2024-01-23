@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Header, Body, Footer, Search, About, Cart } from "./components";
+import {
+  Header,
+  Body,
+  Footer,
+  Search,
+  About,
+  Cart,
+  ErrorPage,
+} from "./components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
@@ -17,6 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/search",
