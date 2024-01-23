@@ -11,7 +11,7 @@ const RestaurantCard = ({
   sla,
 }) => {
   return (
-    <div className="m-4 w-72 h-72 rounded-2xl  overflow-hidden hover:scale-90 transition-transform duration-300 font-[Montserrat]">
+    <div className="m-4 w-72 h-72 rounded-2xl  overflow-hidden hover:scale-90 transition-transform duration-300  ">
       <div className="w-full h-40">
         <img
           className=" w-full h-full object-cover object-center rounded-2xl"

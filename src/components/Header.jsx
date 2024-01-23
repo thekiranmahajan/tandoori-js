@@ -14,7 +14,7 @@ const Header = () => {
         <img className="h-16" src={logo} alt="TandooriJs_Logo" />
         <h2 className="font-[Pacifico] text-2xl">Tandoori Js.</h2>
       </div>
-      <NavLinks className="hidden md:flex items-center justify-around h-full max-w-[50%] font-semibold font-[Montserrat] p-10 gap-10" />
+      <NavLinks className="hidden md:flex items-center justify-around h-full max-w-[50%] font-semibold   p-10 gap-10" />
       <button
         onClick={toggleMenu}
         className={`text-3xl md:hidden transition-transform duration-300 ease-in-out transform ${
