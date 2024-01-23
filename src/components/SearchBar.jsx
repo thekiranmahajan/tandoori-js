@@ -9,7 +9,7 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
     }
   };
   return (
-    <div className="w-11/12 flex items-center justify-center p-4 font-[Montserrat] mt-10 flex-wrap gap-5">
+    <div className="w-11/12 flex items-center justify-center p-4 font-[Montserrat] mt-10 flex-wrap gap-5 md:justify-between">
       <div className="flex items-center justify-center gap-0">
         <input
           onChange={(e) => {

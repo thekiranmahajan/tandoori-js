@@ -21,8 +21,8 @@ const RestaurantCard = ({
       </div>
       <div className="w-full px-4 py-2">
         <h2 className="text-lg font-semibold truncate">{name}</h2>
-        <div className="font-semibold text-lg flex gap-2 ">
-          <p className="flex items-center gap-1">
+        <div className="font-semibold text-md flex gap-2 ">
+          <p className="flex items-center  gap-1">
             <FontAwesomeIcon className="text-green-500" icon={faStar} />
             {avgRating}
           </p>

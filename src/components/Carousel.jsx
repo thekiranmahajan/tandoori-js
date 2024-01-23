@@ -20,7 +20,6 @@ const Carousel = ({ carouselCards }) => {
       Math.floor(carousel.current.scrollWidth / carousel.current.offsetWidth) -
         1
     );
-    console.log(maxIndex);
     if (currentIndex <= maxIndex) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
@@ -52,12 +51,12 @@ const Carousel = ({ carouselCards }) => {
       <div className="w-full h-52 relative overflow-hidden">
         <div
           ref={carousel}
-          className="h-full pl-5 flex gap-4 overflow-hidden scroll-smooth"
+          className="h-full pl-5 flex gap-8 overflow-hidden scroll-smooth"
         >
           {carouselCards.map((carouselCard) => (
             <img
               key={carouselCard.id}
-              className="object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply "
+              className="object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
               src={CARD_URL + carouselCard.imageId}
               alt="card img"
             />

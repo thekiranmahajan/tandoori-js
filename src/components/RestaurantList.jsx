@@ -8,11 +8,11 @@ const RestaurantList = ({ restaurants }) => {
       {restaurants.length === 0 ? (
         <div className="flex items-center justify-center flex-col m-10">
           <FontAwesomeIcon
-            className="text-[10rem] text-red-500 drop-shadow-xl"
+            className="text-[8rem] text-yellow-500 drop-shadow-xl"
             icon={faCircleExclamation}
           />
 
-          <h1 className="mt-5 text-2xl text-center font-semibold">
+          <h1 className="mt-10 text-xl text-center font-semibold">
             No restaurants are matched <br /> Try again later...
           </h1>
         </div>
