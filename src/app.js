@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   Header,
-  Body,
+  Home,
   Footer,
   Search,
   About,
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="bg-gray-200 min-h-screen w-full flex items-center  flex-col overflow-x-hidden">
       <Header />
-      <Body />
+      <Home />
       <Footer />
     </div>
   );

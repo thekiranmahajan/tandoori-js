@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { API_URL } from "../constants";
 
-const Body = () => {
+const Home = () => {
   const [carouselCards, setCarouselCards] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -79,4 +79,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Home;
