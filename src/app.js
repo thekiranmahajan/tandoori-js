@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+import { Header, Body, Footer, Search, About, Cart } from "./components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
@@ -21,8 +19,16 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
+    path: "/search",
+    element: <Search />,
+  },
+  {
     path: "/about",
-    element: <App />,
+    element: <About />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 
