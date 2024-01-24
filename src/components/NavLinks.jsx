@@ -1,3 +1,11 @@
+import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faBellConcierge,
+  faCartPlus,
+  faUtensils,
+ 
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -12,7 +20,9 @@ const NavLinks = ({ className }) => {
           return isActive ? "active-navlink" : "";
         }}
       >
-        Home
+        {({ isActive }) => (
+          <>{isActive && <FontAwesomeIcon icon={faBellConcierge} />}Home</>
+        )}
       </NavLink>
       <NavLink
         to="/search"
@@ -20,7 +30,9 @@ const NavLinks = ({ className }) => {
           return isActive ? "active-navlink" : "";
         }}
       >
-        Search
+        {({ isActive }) => (
+          <>{isActive && <FontAwesomeIcon icon={faSearchengin} />}Search</>
+        )}
       </NavLink>
       <NavLink
         to="/about"
@@ -28,7 +40,9 @@ const NavLinks = ({ className }) => {
           return isActive ? "active-navlink" : "";
         }}
       >
-        About
+        {({ isActive }) => (
+          <>{isActive && <FontAwesomeIcon icon={faUtensils} />}About</>
+        )}
       </NavLink>
       <NavLink
         to="/cart"
@@ -36,7 +50,9 @@ const NavLinks = ({ className }) => {
           return isActive ? "active-navlink" : "";
         }}
       >
-        Cart
+        {({ isActive }) => (
+          <>{isActive && <FontAwesomeIcon icon={faCartPlus} />}Cart</>
+        )}
       </NavLink>
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}

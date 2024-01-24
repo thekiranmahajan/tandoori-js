@@ -9,13 +9,13 @@ import {
   Cart,
   ErrorPage,
 } from "./components";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="bg-gray-200 min-h-screen w-full flex items-center  flex-col overflow-x-hidden">
       <Header />
-      <Home />
+      <Outlet />
       <Footer />
     </div>
   );
@@ -26,18 +26,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/search",
-    element: <Search />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
+    children: [
+      { path: "", element: <Home /> },
+      { path: "search", element: <Search /> },
+      { path: "about", element: <About /> },
+      { path: "cart", element: <Cart /> },
+    ],
   },
 ]);
 
