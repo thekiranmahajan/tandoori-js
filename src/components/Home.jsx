@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import RestaurantList from "./RestaurantList";
 import SearchBar from "./SearchBar";
-import ShimmerUI from "./ShimmerUI";
+import HomeShimmerUI from "./HomeShimmerUI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { API_URL } from "../constants";
@@ -63,7 +63,7 @@ const Home = () => {
           </h1>
         </div>
       ) : allRestaurants?.length === 0 ? (
-        <ShimmerUI />
+        <HomeShimmerUI />
       ) : (
         <>
           <Carousel carouselCards={carouselCards} />

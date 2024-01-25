@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShimmerUICard = () => {
+const HomeShimmerUICard = () => {
   return (
     <div className="animate-pulse m-4 w-72 h-72 rounded-2xl p-2 bg-white flex items-center justify-between flex-col">
       <div className="w-64 h-32 rounded-xl bg-gray-400 "></div>
@@ -15,4 +15,4 @@ const ShimmerUICard = () => {
   );
 };
 
-export default ShimmerUICard;
+export default HomeShimmerUICard;
