@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+
 const RestaurantList = ({ restaurants }) => {
   return (
     <div className="mt-10 flex flex-wrap justify-center  ">

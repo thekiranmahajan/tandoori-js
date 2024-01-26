@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import RestaurantMenuShimmerUI from "./RestaurantMenuShimmerUI";
+import { RestaurantMenuShimmerUI } from "../shimmers";
 import { MENU_API } from "../constants.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [RestaurantMenu, setRestaurantMenu] = useState([]);
@@ -40,7 +41,7 @@ const RestaurantMenu = () => {
           <div className=" rounded-lg">
             {RestaurantMenu?.areaName +
               ", " +
-              RestaurantMenu?.feeDetails?.message.substring(0, 6)}
+              RestaurantMenu?.feeDetails?.message?.substring(0, 6)}
           </div>
           <div className="rounded-lg">
             {RestaurantMenu?.feeDetails?.message}

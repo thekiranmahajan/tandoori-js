@@ -2,7 +2,7 @@ import React from "react";
 import error404 from "../../public/images/error404.svg";
 import { useRouteError } from "react-router-dom";
 
-const ErrorPage = () => {
+const NotFound = () => {
   const { error, status, statusText } = useRouteError();
 
   return (
@@ -14,4 +14,4 @@ const ErrorPage = () => {
     </div>
   );
 };
-export default ErrorPage;
+export default NotFound;

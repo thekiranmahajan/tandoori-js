@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "./Carousel";
-import RestaurantList from "./RestaurantList";
-import SearchBar from "./SearchBar";
-import HomeShimmerUI from "./HomeShimmerUI";
+import { Carousel, SearchBar, RestaurantList } from "../components";
+import { HomeShimmerUI } from "../shimmers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { API_URL } from "../constants";
@@ -18,12 +16,11 @@ const Home = () => {
       const response = await fetch(API_URL);
       const data = await response.json();
 
-      const APICall = data?.data?.cards[1]?.card?.card?.gridElements
-        ?.infoWithStyle?.restaurants
-        ? data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
+      const APICall =
+        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
 
       console.log(APICall);
       setAllRestaurants(APICall);

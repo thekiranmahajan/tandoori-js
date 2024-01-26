@@ -1,16 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  Header,
-  Home,
-  Footer,
-  Search,
-  About,
-  Cart,
-  ErrorPage,
-} from "./components";
+import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
+import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
 
 const App = () => {
   return (
@@ -26,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <NotFound />,
     children: [
       { path: "", element: <Home /> },
       { path: "search", element: <Search /> },
