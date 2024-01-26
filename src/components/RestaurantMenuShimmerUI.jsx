@@ -19,14 +19,13 @@ const RestaurantMenuShimmerUI = () => {
           <div className="w-28 h-6 bg-gray-600 rounded-lg "></div>
           <div className="w-28 h-6 bg-gray-600 rounded-lg "></div>
         </div>
-        <div className="flex gap-1">
-          <div className="w-28 h-12 bg-gray-300 rounded-lg"></div>
-          <div className="w-28 h-12 bg-gray-300 rounded-lg"></div>
-          <div className="w-28 h-12 bg-gray-300 rounded-lg"></div>
-          <div className="w-28 h-12 bg-gray-300 rounded-lg"></div>
+        <div className="flex gap-2 overflow-hidden">
+          <div className="w-28 md:w-36 lg:w-40 h-12 bg-gray-300 rounded-lg"></div>
+          <div className="w-28 md:w-36 lg:w-40 h-12 bg-gray-300 rounded-lg"></div>
+          <div className="hidden md:flex w-28 md:w-36 lg:w-40 h-12 bg-gray-300 rounded-lg"></div>
+          <div className="hidden lg:flex w-28 md:w-36 lg:w-40 h-12 bg-gray-300 rounded-lg"></div>
         </div>
       </div>
-      <hr className="bg-red-800" />
     </div>
   );
 };
