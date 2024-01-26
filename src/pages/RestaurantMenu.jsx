@@ -1,31 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RestaurantMenuShimmerUI } from "../shimmers";
-import { MENU_API } from "../constants.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [RestaurantMenu, setRestaurantMenu] = useState([]);
-
-  const getRestaurantMenu = async () => {
-    try {
-      const response = await fetch(MENU_API + resId);
-      const data = await response.json();
-      setRestaurantMenu(
-        data?.data?.cards[2]?.card?.card?.info ||
-          data?.data?.cards[0]?.card?.card?.info
-      );
-      console.log(data?.data?.cards[2]?.card?.card?.info);
-    } catch (err) {
-      console.log("Something went wrong while fetching API...😵");
-    }
-  };
-
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
+  
 
   return RestaurantMenu.length === 0 ? (
     <RestaurantMenuShimmerUI />
