@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { MENU_API } from "../constants.js";
 
 const useRestaurantMenu = (resId) => {
-  const [restaurantInfo, setRestaurantInfo] = useState([]);
+  const [restaurantInfo, setRestaurantInfo] = useState(null);
+
+  useEffect(() => {
+    getRestaurantMenu();
+  }, []);
 
   const getRestaurantMenu = async () => {
     try {
@@ -14,19 +18,15 @@ const useRestaurantMenu = (resId) => {
           data?.data?.cards[0]?.card?.card?.info
       );
 
-      console.log(data?.data?.cards[2]?.card?.card?.info);
+      // console.log(data?.data?.cards[2]?.card?.card?.info);
     } catch (err) {
       console.log(
         "Something went wrong while fetching RestaurantMenu API...😵"
       );
     }
   };
-
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
-
-  return restaurantInfo;
+  console.log(restaurantInfo);
+  return { restaurantInfo };
 };
 
 export default useRestaurantMenu;
