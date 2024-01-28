@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { IMG_URL } from "../constants.js";
 import DiscountOfferCard from "./DiscountOfferCard.jsx";
+import { Link } from "react-router-dom";
+
 const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
   const {
     name,
@@ -21,6 +23,11 @@ const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
   console.log(restaurantOffers);
   return (
     <>
+      <div className="text-[0.65rem] text-gray-500 font-semibold  mb-10 text-left w-full">
+        <Link to="/">Home</Link>
+        <span className="cursor-pointer"> / Pune / </span>
+        <span className="text-gray-800">{name}</span>
+      </div>
       <div className=" w-full h-36 rounded-xl p-2 bg-gray-100 flex items-center justify-between">
         <div className="flex flex-col gap-1 px-4">
           <div className="font-bold text-xl">{name}</div>
