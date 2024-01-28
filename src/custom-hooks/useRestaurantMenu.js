@@ -3,6 +3,7 @@ import { MENU_API } from "../constants.js";
 
 const useRestaurantMenu = (resId) => {
   const [restaurantInfo, setRestaurantInfo] = useState(null);
+  const [restaurantOffers, setRestaurantOffers] = useState(null);
 
   useEffect(() => {
     getRestaurantMenu();
@@ -18,15 +19,18 @@ const useRestaurantMenu = (resId) => {
           data?.data?.cards[0]?.card?.card?.info
       );
 
-      // console.log(data?.data?.cards[2]?.card?.card?.info);
+      setRestaurantOffers(
+        data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers ||
+          data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers
+      );
     } catch (err) {
       console.log(
         "Something went wrong while fetching RestaurantMenu API...😵"
       );
     }
   };
-  console.log(restaurantInfo);
-  return { restaurantInfo };
+
+  return { restaurantInfo, restaurantOffers };
 };
 
 export default useRestaurantMenu;
