@@ -49,7 +49,7 @@ const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
             <FontAwesomeIcon icon={faStar} />
             {avgRatingString}
           </div>
-          <div className=" rounded-lg text-gray-400 text-[0.6rem] font-semibold truncate">
+          <div className=" rounded-lg text-gray-400 text-[0.6rem] font-semibold tracking-tighter">
             {totalRatingsString}
           </div>
         </div>
@@ -66,8 +66,13 @@ const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
           </p>
         </div>
         <div className="flex items-center overflow-x-auto w-screen h-28  no-scrollbar scroll-smooth">
-          <div className="w-[2000px] flex  items-center gap-4">
-            <DiscountOfferCard />
+          <div className="w-[2500px] flex  items-center gap-4 ">
+            {restaurantOffers.map((offer) => (
+              <DiscountOfferCard
+                {...offer?.info}
+                key={offer?.info?.offerIds[0]}
+              />
+            ))}
           </div>
         </div>
       </div>
