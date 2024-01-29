@@ -13,10 +13,9 @@ currently working on the react-router-dom part of it...
 
 
 
-### GitHub Repo: https://lnkd.in/dRcm5cdU
+### GitHub Repo: https://github.com/thekiranmahajan/tandoori-js
 
-### Vercel Demo: https://lnkd.in/dRWZ9Dsg
-
+### Vercel Demo: https://tandoori-js.vercel.app/
 
 
 ## 🐼FEATURES🐼
