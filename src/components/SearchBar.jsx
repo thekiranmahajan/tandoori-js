@@ -1,11 +1,18 @@
 import React from "react";
 import Button from "./Button";
+import { faStar, faBolt, faSeedling } from "@fortawesome/free-solid-svg-icons";
 
-const SearchBar = ({ searchText, setSearchText, onSearch }) => {
+const SearchBar = ({
+  searchText,
+  setSearchText,
+  onSearchFilter,
+  topRatedFilter,
+  vegFilter,
+}) => {
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      onSearch(searchText);
+      onSearchFilter(searchText);
     }
   };
   return (
@@ -16,7 +23,7 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
             setSearchText(e.target.value);
           }}
           onKeyDown={handleEnter}
-          className="md:w-72 h-10 px-3 py-2 rounded-lg outline-none border-none truncate text-sm"
+          className="md:w-72 h-10 px-3 py-2 rounded-lg outline-none border-none truncate text-sm mr-4"
           type="text"
           value={searchText}
           placeholder="Search you favorite restaurants"
@@ -24,11 +31,15 @@ const SearchBar = ({ searchText, setSearchText, onSearch }) => {
         <Button
           btnText={"Search"}
           onClick={() => {
-            onSearch(searchText);
+            onSearchFilter(searchText);
           }}
         />
       </div>
-      <Button btnText={"Top Rated Restaurants"} />
+      <div className="flex flex-wrap gap-4">
+        <Button btnIcon={faStar} onClick={topRatedFilter} btnText="Top Rated" />
+        <Button btnIcon={faBolt} onClick={vegFilter} btnText="Delivery Time" />
+        <Button btnIcon={faSeedling} onClick={vegFilter} btnText="Veg" />
+      </div>
     </div>
   );
 };
