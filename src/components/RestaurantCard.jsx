@@ -29,10 +29,10 @@ const RestaurantCard = ({
           </p>
           <p className="flex items-center gap-1">
             <FontAwesomeIcon className="text-[0.4rem]" icon={faCircle} />
-            {sla.deliveryTime} mins
+            {sla?.deliveryTime} mins
           </p>
         </div>
-        <p className="text-gray-500 truncate">{cuisines.join(", ")}</p>
+        <p className="text-gray-500 truncate">{cuisines?.join(", ")}</p>
         <p className="text-gray-500 truncate">{locality}</p>
       </div>
     </div>

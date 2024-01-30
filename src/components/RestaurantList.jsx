@@ -22,7 +22,7 @@ const RestaurantList = ({ restaurants }) => {
         restaurants.map((restaurant) => (
           <Link
             to={`/restaurant-menu/${restaurant?.info?.id}`}
-            key={restaurant.info.id}
+            key={restaurant?.info?.id}
           >
             <RestaurantCard {...restaurant?.info} />
           </Link>
