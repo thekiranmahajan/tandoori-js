@@ -2,7 +2,7 @@ import React from "react";
 const RestaurantMenuShimmerUI = () => {
   return (
     <>
-      <div className="md:w-2/3 w-9/12 mt-10 ">
+      <div className="md:w-2/3 w-9/12 mt-10 pt-16">
         <div className=" animate-pulse h-2 md:w-44 w-28 bg-gray-400 rounded-lg"></div>
       </div>
       <div className="md:w-2/3 w-9/12 min-h-screen flex flex-col items-center mt-8">

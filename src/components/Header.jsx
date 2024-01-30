@@ -11,7 +11,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="relative h-20 w-full flex items-center justify-between bg-white px-8 shadow-md">
+    <div className=" h-20 w-full flex items-center justify-between bg-white px-8 shadow-md fixed z-10">
       <div className="flex items-center">
         <Link to="/">
           <img className="h-16" src={logo} alt="TandooriJs_Logo" />

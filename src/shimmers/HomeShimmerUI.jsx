@@ -6,7 +6,9 @@ const HomeShimmerUI = () => {
     shimmerUICards.push(<HomeShimmerUICard key={i} />);
   }
 
-  return <div className="flex flex-wrap justify-center">{shimmerUICards}</div>;
+  return (
+    <div className="flex flex-wrap justify-center pt-16 ">{shimmerUICards}</div>
+  );
 };
 
 export default HomeShimmerUI;

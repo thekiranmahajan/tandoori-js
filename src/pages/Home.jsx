@@ -46,7 +46,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-11/12 min-h-[80vh] flex items-center flex-col   select-none">
+    <div className="w-11/12 min-h-[80vh] flex items-center flex-col   select-none pt-16">
       {allRestaurants === undefined ? (
         <div className="w-full h-[80vh] flex items-center justify-center flex-col">
           <FontAwesomeIcon
