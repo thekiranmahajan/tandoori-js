@@ -33,12 +33,27 @@ const Home = () => {
     }
   };
 
-  const onSearch = (searchText) => {
+  const onSearchFilter = (searchText) => {
     const filteredData = allRestaurants.filter((restaurant) =>
       restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredRestaurants(filteredData);
-    console.log(filteredData);
+    console.log(filteredData, "onSearchFilter!");
+  };
+
+  const topRatedFilter = () => {
+    const topRated = allRestaurants.filter(
+      (restaurant) => restaurant?.info?.avgRating > 4.2
+    );
+    setFilteredRestaurants(topRated);
+    console.log(topRated, "topRated!");
+  };
+
+  const vegFilter = () => {
+    const areVeg = allRestaurants.filter(
+      (restaurant) => restaurant?.info?.veg === true
+    );
+    console.log(areVeg, "vegFilter!");
   };
 
   useEffect(() => {
@@ -67,7 +82,9 @@ const Home = () => {
           <SearchBar
             searchText={searchText}
             setSearchText={setSearchText}
-            onSearch={onSearch}
+            onSearchFilter={onSearchFilter}
+            topRatedFilter={topRatedFilter}
+            vegFilter={vegFilter}
           />
           <RestaurantList restaurants={filteredRestaurants} />
         </>
