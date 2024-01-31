@@ -53,7 +53,16 @@ const Home = () => {
     const areVeg = allRestaurants.filter(
       (restaurant) => restaurant?.info?.veg === true
     );
+    setFilteredRestaurants(areVeg);
     console.log(areVeg, "vegFilter!");
+  };
+
+  const deliveryTimefilter = () => {
+    const deliveryTime = allRestaurants.filter(
+      (restaurant) => restaurant?.info?.sla?.deliveryTime <= 28
+    );
+    setFilteredRestaurants(deliveryTime);
+    console.log(deliveryTime, "deliveryTime!");
   };
 
   useEffect(() => {
@@ -85,6 +94,7 @@ const Home = () => {
             onSearchFilter={onSearchFilter}
             topRatedFilter={topRatedFilter}
             vegFilter={vegFilter}
+            deliveryTimefilter={deliveryTimefilter}
           />
           <RestaurantList restaurants={filteredRestaurants} />
         </>

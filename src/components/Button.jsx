@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Button = ({ onClick = () => {}, btnText, btnIcon }) => {
-  console.log(btnIcon, "from Button");
   return (
     <button
       onClick={onClick}

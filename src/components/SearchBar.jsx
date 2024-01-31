@@ -8,6 +8,7 @@ const SearchBar = ({
   onSearchFilter,
   topRatedFilter,
   vegFilter,
+  deliveryTimefilter,
 }) => {
   const handleEnter = (e) => {
     if (e.key === "Enter") {
@@ -37,7 +38,11 @@ const SearchBar = ({
       </div>
       <div className="flex flex-wrap gap-4">
         <Button btnIcon={faStar} onClick={topRatedFilter} btnText="Top Rated" />
-        <Button btnIcon={faBolt} onClick={vegFilter} btnText="Delivery Time" />
+        <Button
+          btnIcon={faBolt}
+          onClick={deliveryTimefilter}
+          btnText="Delivery Time"
+        />
         <Button btnIcon={faSeedling} onClick={vegFilter} btnText="Veg" />
       </div>
     </div>
