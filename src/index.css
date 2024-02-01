@@ -12,6 +12,15 @@
   .active-navlink {
     @apply bg-white md:bg-[#1c1c24] md:text-white px-4 py-2 rounded-md hover:bg-[#1c1c24c2] hover:scale-110 transition-transform duration-200 hover:text-white flex items-center justify-center gap-2;
   }
+  .paragraph {
+    @apply md:text-lg  text-gray-600 text-justify;
+  }
+  .headingOne {
+    @apply w-full font-bold text-wrap mt-8 text-gray-800 text-xl md:text-2xl;
+  }
+  .headingTwo {
+    @apply w-full font-semibold text-wrap my-3 text-lg md:text-xl text-gray-700;
+  }
 }
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
