@@ -20,6 +20,7 @@
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.11.0",
     "@parcel/transformer-webmanifest": "^2.11.0",
+    "buffer": "^6.0.3",
     "parcel": "^2.11.0",
     "postcss": "^8.4.33",
     "process": "^0.11.10",
