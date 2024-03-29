@@ -14,7 +14,9 @@ const Home = () => {
   const getRestaurants = async () => {
     try {
       const response = await fetch(API_URL);
-      const data = await response.json();
+      const jsonData = await response.json();
+      const data = await JSON.parse(jsonData.contents);
+      // console.log(data);
 
       const APICall =
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
