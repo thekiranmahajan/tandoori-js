@@ -8,7 +8,6 @@ import { API_URL } from "../constants";
 const Home = () => {
   const [carouselCards, setCarouselCards] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const getRestaurants = async () => {
@@ -16,7 +15,6 @@ const Home = () => {
       const response = await fetch(API_URL);
       const jsonData = await response.json();
       const data = await JSON.parse(jsonData.contents);
-      // console.log(data);
 
       const APICall =
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -33,38 +31,6 @@ const Home = () => {
     } catch (error) {
       console.log("Something went wrong while fetching API...😵");
     }
-  };
-
-  const onSearchFilter = (searchText) => {
-    const filteredData = allRestaurants.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setFilteredRestaurants(filteredData);
-    console.log(filteredData, "onSearchFilter!");
-  };
-
-  const topRatedFilter = () => {
-    const topRated = allRestaurants.filter(
-      (restaurant) => restaurant?.info?.avgRating > 4.2
-    );
-    setFilteredRestaurants(topRated);
-    console.log(topRated, "topRated!");
-  };
-
-  const vegFilter = () => {
-    const areVeg = allRestaurants.filter(
-      (restaurant) => restaurant?.info?.veg === true
-    );
-    setFilteredRestaurants(areVeg);
-    console.log(areVeg, "vegFilter!");
-  };
-
-  const deliveryTimefilter = () => {
-    const deliveryTime = allRestaurants.filter(
-      (restaurant) => restaurant?.info?.sla?.deliveryTime <= 28
-    );
-    setFilteredRestaurants(deliveryTime);
-    console.log(deliveryTime, "deliveryTime!");
   };
 
   useEffect(() => {
@@ -91,12 +57,8 @@ const Home = () => {
         <>
           <Carousel carouselCards={carouselCards} />
           <SearchBar
-            searchText={searchText}
-            setSearchText={setSearchText}
-            onSearchFilter={onSearchFilter}
-            topRatedFilter={topRatedFilter}
-            vegFilter={vegFilter}
-            deliveryTimefilter={deliveryTimefilter}
+            setFilteredRestaurants={setFilteredRestaurants}
+            allRestaurants={allRestaurants}
           />
           <RestaurantList restaurants={filteredRestaurants} />
         </>

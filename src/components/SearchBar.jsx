@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import { faStar, faBolt, faSeedling } from "@fortawesome/free-solid-svg-icons";
-
-const SearchBar = ({
-  searchText,
-  setSearchText,
+import {
   onSearchFilter,
   topRatedFilter,
-  vegFilter,
   deliveryTimefilter,
-}) => {
+  vegFilter,
+} from "../utils/helper";
+const SearchBar = ({ setFilteredRestaurants, allRestaurants }) => {
+  const [searchText, setSearchText] = useState("");
+
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      onSearchFilter(searchText);
+      onSearchFilter(allRestaurants, setFilteredRestaurants, searchText);
     }
   };
   return (
@@ -32,18 +32,28 @@ const SearchBar = ({
         <Button
           btnText={"Search"}
           onClick={() => {
-            onSearchFilter(searchText);
+            onSearchFilter(allRestaurants, setFilteredRestaurants, searchText);
           }}
         />
       </div>
       <div className="flex flex-wrap gap-4">
-        <Button btnIcon={faStar} onClick={topRatedFilter} btnText="Top Rated" />
+        <Button
+          btnIcon={faStar}
+          onClick={() => topRatedFilter(allRestaurants, setFilteredRestaurants)}
+          btnText="Top Rated"
+        />
         <Button
           btnIcon={faBolt}
-          onClick={deliveryTimefilter}
+          onClick={() =>
+            deliveryTimefilter(allRestaurants, setFilteredRestaurants)
+          }
           btnText="Delivery Time"
         />
-        <Button btnIcon={faSeedling} onClick={vegFilter} btnText="Veg" />
+        <Button
+          btnIcon={faSeedling}
+          onClick={() => vegFilter(allRestaurants, setFilteredRestaurants)}
+          btnText="Veg"
+        />
       </div>
     </div>
   );
