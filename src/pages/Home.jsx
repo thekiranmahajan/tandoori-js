@@ -1,41 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { Carousel, SearchBar, RestaurantList } from "../components";
 import { HomeShimmerUI } from "../shimmers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { API_URL } from "../constants";
-
+import useRestaurants from "../custom-hooks/useRestaurants";
 const Home = () => {
-  const [carouselCards, setCarouselCards] = useState([]);
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-
-  const getRestaurants = async () => {
-    try {
-      const response = await fetch(API_URL);
-      const jsonData = await response.json();
-      const data = await JSON.parse(jsonData.contents);
-
-      const APICall =
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      console.log(APICall);
-      setAllRestaurants(APICall);
-      setFilteredRestaurants(APICall);
-      setCarouselCards(
-        data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
-      );
-    } catch (error) {
-      console.log("Something went wrong while fetching API...😵");
-    }
-  };
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
+  const {
+    carouselCards,
+    allRestaurants,
+    filteredRestaurants,
+    setFilteredRestaurants,
+  } = useRestaurants();
 
   return (
     <div className="w-11/12 min-h-[80vh] flex items-center flex-col   select-none pt-16">
