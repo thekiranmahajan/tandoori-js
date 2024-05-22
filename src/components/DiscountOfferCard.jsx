@@ -1,5 +1,5 @@
 import React from "react";
-import { IMG_URL } from "../constants";
+import { IMG_URL } from "../utils/constants";
 
 const DiscountOfferCard = ({ header, couponCode, description }) => {
   return (

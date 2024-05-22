@@ -1,6 +1,6 @@
 import React from "react";
 import aboutImg from "../../public/images/aboutImg.svg";
-import { REACT_LOGO, PARCEL_LOGO, TAILWINDCSS_LOGO } from "../constants";
+import { REACT_LOGO, PARCEL_LOGO, TAILWINDCSS_LOGO } from "../utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 import REACT_ROUTER_LOGO from "../../public/images/REACT_ROUTER_LOGO.svg";

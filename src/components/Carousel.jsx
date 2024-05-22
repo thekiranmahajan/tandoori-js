@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { CARD_URL } from "../constants";
+import { CARD_URL } from "../utils/constants";
 
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CircularBtn from "./CircularBtn";

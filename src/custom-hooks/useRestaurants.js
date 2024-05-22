@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../constants";
+import { API_URL } from "../utils/constants";
 
 const useRestaurants = () => {
   const [carouselCards, setCarouselCards] = useState([]);

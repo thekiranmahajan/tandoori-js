@@ -1,5 +1,5 @@
 import React from "react";
-import { IMG_URL } from "../constants.js";
+import { IMG_URL } from "../utils/constants.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 

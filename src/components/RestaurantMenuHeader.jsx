@@ -5,7 +5,7 @@ import {
   faRupeeSign,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { IMG_URL } from "../constants.js";
+import { IMG_URL } from "../utils/constants.js";
 import DiscountOfferCard from "./DiscountOfferCard.jsx";
 import { Link } from "react-router-dom";
 
