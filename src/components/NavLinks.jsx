@@ -3,14 +3,15 @@ import {
   faBellConcierge,
   faCartPlus,
   faUtensils,
- 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useOnline from "../custom-hooks/useOnline";
 
 const NavLinks = ({ className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isOnline = useOnline();
 
   return (
     <div className={className}>
@@ -57,6 +58,7 @@ const NavLinks = ({ className }) => {
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
       </button>
+      <span > {isOnline ? "🟢" : "🔴"}</span>
     </div>
   );
 };
