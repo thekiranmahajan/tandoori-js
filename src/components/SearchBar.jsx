@@ -17,14 +17,14 @@ const SearchBar = ({ setFilteredRestaurants, allRestaurants }) => {
     }
   };
   return (
-    <div className="w-11/12 flex items-center justify-center p-4   mt-10 flex-wrap gap-5 md:justify-between">
+    <div className="mt-10 flex w-11/12 flex-wrap items-center   justify-center gap-5 p-4 md:justify-between">
       <div className="flex items-center justify-center gap-0">
         <input
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
           onKeyDown={handleEnter}
-          className="md:w-72 h-10 px-3 py-2 rounded-lg outline-none border-none truncate text-sm mr-4"
+          className="mr-4 h-10 truncate rounded-lg border-none px-3 py-2 text-sm outline-none md:w-72"
           type="text"
           value={searchText}
           placeholder="Search you favorite restaurants"

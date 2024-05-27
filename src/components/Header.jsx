@@ -11,7 +11,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className=" h-20 w-full flex items-center justify-between bg-white px-8 shadow-md fixed z-10">
+    <div className=" fixed z-10 flex h-20 w-full items-center justify-between bg-white px-8 shadow-md">
       <div className="flex items-center">
         <Link to="/">
           <img className="h-16" src={logo} alt="TandooriJs_Logo" />
@@ -23,16 +23,16 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h6 className="text-xs ml-8 font-RobotoCondenced">
+            <h6 className="ml-8 font-RobotoCondenced text-xs">
               by Kiran Mahajan
             </h6>
           </a>
         </div>
       </div>
-      <NavLinks className="hidden md:flex items-center justify-around h-full max-w-[50%] font-semibold p-10 gap-8  mr-5" />
+      <NavLinks className="mr-5 hidden h-full max-w-[50%] items-center justify-around gap-8 p-10 font-semibold  md:flex" />
       <button
         onClick={toggleMenu}
-        className={`text-3xl md:hidden transition-transform duration-300 ease-in-out transform ${
+        className={`transform text-3xl transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? "rotate-180" : ""
         }`}
       >
@@ -40,7 +40,7 @@ const Header = () => {
       </button>
 
       {isOpen && (
-        <NavLinks className=" bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-11/12 h-60 flex flex-wrap items-center justify-center flex-col md:hidden z-10  absolute m-auto left-0 right-0 top-24 text-lg gap-2 font-semibold" />
+        <NavLinks className=" absolute left-0 right-0 top-24 z-10 m-auto flex h-60 w-11/12 flex-col flex-wrap items-center justify-center gap-2  rounded-lg bg-gray-800 bg-opacity-30 text-lg font-semibold backdrop-blur-sm backdrop-filter md:hidden" />
       )}
     </div>
   );

@@ -3,8 +3,8 @@ import { IMG_URL } from "../utils/constants";
 
 const DiscountOfferCard = ({ header, couponCode, description }) => {
   return (
-    <div className="w-64 h-16 border-2 rounded-md p-2 flex flex-col gap-2 cursor-pointer bg-white tracking-tight">
-      <h2 className="flex gap-2 items-center text-sm font-bold text-gray-600">
+    <div className="flex h-16 w-64 cursor-pointer flex-col gap-2 rounded-md border-2 bg-white p-2 tracking-tight">
+      <h2 className="flex items-center gap-2 text-sm font-bold text-gray-600">
         <img
           className="h-5"
           src={IMG_URL + "offers/generic"}

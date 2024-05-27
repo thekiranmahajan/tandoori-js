@@ -12,14 +12,14 @@ const Home = () => {
   } = useRestaurants();
 
   return (
-    <div className="w-11/12 min-h-[80vh] flex items-center flex-col   select-none pt-16">
+    <div className="flex min-h-[80vh] w-11/12 select-none flex-col   items-center pt-16">
       {allRestaurants === undefined ? (
-        <div className="w-full h-[80vh] flex items-center justify-center flex-col">
+        <div className="flex h-[80vh] w-full flex-col items-center justify-center">
           <FontAwesomeIcon
             className="text-[10rem] text-red-500 drop-shadow-xl"
             icon={faTriangleExclamation}
           />
-          <h1 className="mt-5 text-2xl text-center font-semibold">
+          <h1 className="mt-5 text-center text-2xl font-semibold">
             Sorry😵
             <br />
             No restaurants are available <br /> Try again later...

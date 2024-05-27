@@ -7,14 +7,14 @@ import REACT_ROUTER_LOGO from "../../public/images/REACT_ROUTER_LOGO.svg";
 
 const About = () => {
   return (
-    <div className="min-h-screen w-3/4 flex items-center flex-col pt-28 mb-24">
+    <div className="mb-24 flex min-h-screen w-3/4 flex-col items-center pt-28">
       <h1 className="text-3xl font-bold">About Us</h1>
-      <h2 className=" w-full font-semibold mt-5 text-xl text-wrap p-2  text-gray-800 text-center">
+      <h2 className=" mt-5 w-full text-wrap p-2 text-center text-xl  font-semibold text-gray-800">
         Tandoori Js - Reacting to Your Hunger, One Byte at a Time! 🌶️
       </h2>
-      <p className="w-full flex items-center justify-center font-semibold  mt-1 gap-4 flex-wrap">
+      <p className="mt-1 flex w-full flex-wrap items-center  justify-center gap-4 font-semibold">
         Powered by{" "}
-        <img className="h-6 ml-4" src={PARCEL_LOGO} alt="PARCEL_LOGO" /> +
+        <img className="ml-4 h-6" src={PARCEL_LOGO} alt="PARCEL_LOGO" /> +
         <img className="h-6" src={REACT_LOGO} alt="REACT_LOGO" /> +
         <img className="h-5" src={REACT_ROUTER_LOGO} alt="REACT_ROUTER_LOGO" />
         +
@@ -22,7 +22,7 @@ const About = () => {
         <FontAwesomeIcon className="text-2xl" icon={faFontAwesome} />
       </p>
       <img
-        className="md:w-1/2 w-3/4 bg-blend-multiply"
+        className="w-3/4 bg-blend-multiply md:w-1/2"
         src={aboutImg}
         alt="about image"
       />

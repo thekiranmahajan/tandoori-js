@@ -26,7 +26,7 @@ const useRestaurants = () => {
       setAllRestaurants(APICall);
       setFilteredRestaurants(APICall);
       setCarouselCards(
-        data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
+        data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info,
       );
     } catch (error) {
       console.log("Something went wrong while fetching API...😵");

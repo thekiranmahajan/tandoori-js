@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
   return restaurantInfo === null ? (
     <RestaurantMenuShimmerUI />
   ) : (
-    <div className="md:w-2/3 w-4/5 min-h-screen flex flex-col items-center mt-8 pt-16">
+    <div className="mt-8 flex min-h-screen w-4/5 flex-col items-center pt-16 md:w-2/3">
       <RestaurantMenuHeader
         restaurantInfo={restaurantInfo}
         restaurantOffers={restaurantOffers}

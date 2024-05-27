@@ -18,7 +18,7 @@ const Carousel = ({ carouselCards }) => {
   const moveNext = () => {
     setMaxIndex(
       Math.floor(carousel.current.scrollWidth / carousel.current.offsetWidth) -
-        1
+        1,
     );
     if (currentIndex <= maxIndex) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -32,9 +32,9 @@ const Carousel = ({ carouselCards }) => {
   }, [currentIndex]);
 
   return (
-    <div className="w-11/12 h-64 flex flex-col mt-10  ">
-      <div className="flex items-center justify-between w-full">
-        <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
+    <div className="mt-10 flex h-64 w-11/12 flex-col  ">
+      <div className="flex w-full items-center justify-between">
+        <h3 className="p-5 pl-4 text-xl font-bold">What's on your mind?</h3>
         <div className="flex gap-4">
           <CircularBtn
             onClick={movePrev}
@@ -48,15 +48,15 @@ const Carousel = ({ carouselCards }) => {
           />
         </div>
       </div>
-      <div className="w-full h-52 relative overflow-hidden">
+      <div className="relative h-52 w-full overflow-hidden">
         <div
           ref={carousel}
-          className="h-full pl-5 flex gap-8 overflow-hidden scroll-smooth"
+          className="flex h-full gap-8 overflow-hidden scroll-smooth pl-5"
         >
           {carouselCards.map((carouselCard) => (
             <img
               key={carouselCard.id}
-              className="object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
+              className="h-full w-52 cursor-pointer object-center mix-blend-multiply transition-transform duration-200 hover:scale-110"
               src={CARD_URL + carouselCard.imageId}
               alt="card img"
             />

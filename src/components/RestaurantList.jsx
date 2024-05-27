@@ -8,13 +8,13 @@ const RestaurantList = ({ restaurants }) => {
   return (
     <div className="mt-10 flex flex-wrap justify-center  ">
       {restaurants.length === 0 ? (
-        <div className="flex items-center justify-center flex-col m-10">
+        <div className="m-10 flex flex-col items-center justify-center">
           <FontAwesomeIcon
             className="text-[8rem] text-yellow-500 drop-shadow-xl"
             icon={faCircleExclamation}
           />
 
-          <h1 className="mt-10 text-xl text-center font-semibold">
+          <h1 className="mt-10 text-center text-xl font-semibold">
             No restaurants are matched <br /> Try again later...
           </h1>
         </div>

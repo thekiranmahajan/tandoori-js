@@ -10,7 +10,7 @@ const Instamart = lazy(() => import("./pages/Instamart"));
 const App = () => {
   const isOnline = useOnline();
   return (
-    <div className="bg-gray-200 min-h-screen w-full flex items-center  flex-col overflow-x-hidden">
+    <div className="flex min-h-screen w-full flex-col items-center  overflow-x-hidden bg-gray-200">
       <Header />
       <Outlet />
       {!isOnline && <Offline />}

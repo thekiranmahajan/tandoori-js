@@ -10,16 +10,16 @@
 
 @layer components {
   .active-navlink {
-    @apply bg-white md:bg-[#1c1c24] md:text-white px-4 py-2 rounded-md hover:bg-[#1c1c24c2] hover:scale-110 transition-transform duration-200 hover:text-white flex items-center justify-center gap-2;
+    @apply flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 transition-transform duration-200 hover:scale-110 hover:bg-[#1c1c24c2] hover:text-white md:bg-[#1c1c24] md:text-white;
   }
   .paragraph {
-    @apply md:text-lg  text-gray-600 text-justify;
+    @apply text-justify  text-gray-600 md:text-lg;
   }
   .headingOne {
-    @apply w-full font-bold text-wrap mt-8 text-gray-800 text-xl md:text-2xl;
+    @apply mt-8 w-full text-wrap text-xl font-bold text-gray-800 md:text-2xl;
   }
   .headingTwo {
-    @apply w-full font-semibold text-wrap my-3 text-lg md:text-xl text-gray-700;
+    @apply my-3 w-full text-wrap text-lg font-semibold text-gray-700 md:text-xl;
   }
 }
 @layer utilities {

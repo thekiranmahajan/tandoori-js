@@ -17,16 +17,16 @@ const useRestaurantMenu = (resId) => {
 
       setRestaurantInfo(
         data?.data?.cards[2]?.card?.card?.info ||
-          data?.data?.cards[0]?.card?.card?.info
+          data?.data?.cards[0]?.card?.card?.info,
       );
 
       setRestaurantOffers(
         data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers ||
-          data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers
+          data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers,
       );
     } catch (err) {
       console.log(
-        "Something went wrong while fetching RestaurantMenu API...😵"
+        "Something went wrong while fetching RestaurantMenu API...😵",
       );
     }
   };

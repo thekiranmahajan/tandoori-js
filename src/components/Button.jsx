@@ -10,7 +10,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-2 bg-[#1c1c21] text-white rounded-lg  focus:ring-4 ring-yellow-300 transition-transform hover:scale-95 focus:scale-100 cursor-pointer text-sm font-semibold text-center flex items-center gap-1 ${className}`}
+      className={`flex cursor-pointer items-center gap-1 rounded-lg  bg-[#1c1c21] px-3 py-2 text-center text-sm font-semibold text-white ring-yellow-300 transition-transform hover:scale-95 focus:scale-100 focus:ring-4 ${className}`}
     >
       {btnIcon && <FontAwesomeIcon icon={btnIcon} />}
       {btnText}
