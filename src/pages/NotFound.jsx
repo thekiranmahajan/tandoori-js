@@ -10,7 +10,7 @@ const NotFound = () => {
       <img className="w-1/4" src={error404} alt="Error 404 page not found" />
       <h3 className="text-3xl font-semibold">Oops!! Something went wrong...</h3>
       <h3 className="text-2xl">{status + ": " + statusText}</h3>
-      <h3 className="text-2xl">{error.message}</h3>
+      <h3 className="text-2xl">{error?.message}</h3>
     </div>
   );
 };

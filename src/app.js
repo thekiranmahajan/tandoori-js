@@ -1,18 +1,11 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import {
-  Home,
-  About,
-  Cart,
-  NotFound,
-  RestaurantMenu,
-  Search,
-  Instamart,
-} from "./pages";
 import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./custom-hooks/useOnline";
 import Offline from "./components/Offline";
+import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
+const Instamart = lazy(() => import("./pages/Instamart"));
 
 const App = () => {
   const isOnline = useOnline();
@@ -36,8 +29,15 @@ const router = createBrowserRouter([
       { path: "search", element: <Search /> },
       { path: "about", element: <About /> },
       { path: "cart", element: <Cart /> },
-      { path: "instamart", element: <Instamart /> },
       { path: "restaurant-menu/:resId", element: <RestaurantMenu /> },
+      {
+        path: "instamart",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Instamart />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

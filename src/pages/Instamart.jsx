@@ -1,4 +1,4 @@
 const Instamart = () => {
-  return <div>Instamart</div>;
+  return <div className="mt-96 text-4xl">Instamart</div>;
 };
 export default Instamart;
