@@ -12,7 +12,7 @@ const App = () => {
     <div className="bg-gray-200 min-h-screen w-full flex items-center  flex-col overflow-x-hidden">
       <Header />
       <Outlet />
-      {!isOnline && <Offline />}
+      {isOnline && <Offline />}
       <Footer />
     </div>
   );
