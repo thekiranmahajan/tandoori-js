@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
+import {
+  Home,
+  About,
+  Cart,
+  NotFound,
+  RestaurantMenu,
+  Search,
+  Instamart,
+} from "./pages";
 import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./custom-hooks/useOnline";
@@ -28,6 +36,7 @@ const router = createBrowserRouter([
       { path: "search", element: <Search /> },
       { path: "about", element: <About /> },
       { path: "cart", element: <Cart /> },
+      { path: "instamart", element: <Instamart /> },
       { path: "restaurant-menu/:resId", element: <RestaurantMenu /> },
     ],
   },

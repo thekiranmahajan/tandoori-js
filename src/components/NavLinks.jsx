@@ -2,6 +2,7 @@ import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
 import {
   faBellConcierge,
   faCartPlus,
+  faTruckFast,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,10 +56,20 @@ const NavLinks = ({ className }) => {
           <>{isActive && <FontAwesomeIcon icon={faCartPlus} />}Cart</>
         )}
       </NavLink>
+      <NavLink
+        to="/instamart"
+        className={({ isActive }) => {
+          return isActive ? "active-navlink" : "";
+        }}
+      >
+        {({ isActive }) => (
+          <>{isActive && <FontAwesomeIcon icon={faTruckFast} />}Instamart</>
+        )}
+      </NavLink>
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
       </button>
-      <span > {isOnline ? "🟢" : "🔴"}</span>
+      <span> {isOnline ? "🟢" : "🔴"}</span>
     </div>
   );
 };
