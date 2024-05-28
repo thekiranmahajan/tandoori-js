@@ -5,24 +5,13 @@ const Section = ({ title, description, isVisible, onToggle }) => {
     <div className="mb-2 rounded-xl border-2 border-yellow-400 p-4">
       <h2 className="text-3xl font-bold underline">{title}</h2>
 
-      {isVisible ? (
-        <>
-          <button
-            onClick={onToggle}
-            className="m-2 h-10 w-20 rounded-lg bg-green-400 font-bold"
-          >
-            Hide
-          </button>
-          <p className="m-4 pl-10 text-gray-500">{description}</p>
-        </>
-      ) : (
-        <button
-          onClick={onToggle}
-          className="m-2 h-10 w-20 rounded-lg bg-green-400 font-bold"
-        >
-          Show
-        </button>
-      )}
+      <button
+        onClick={onToggle}
+        className={`m-2 h-10 w-20 rounded-lg font-bold ${isVisible ? "bg-green-400" : "bg-yellow-400"}`}
+      >
+        {isVisible ? "Hide" : "Show"}
+      </button>
+      {isVisible && <p className="m-4 pl-10 text-gray-500">{description}</p>}
     </div>
   );
 };
@@ -30,7 +19,7 @@ const Section = ({ title, description, isVisible, onToggle }) => {
 const Instamart = () => {
   const [visibleSection, setVisibleSection] = useState(null);
 
-  //if same will make close else open(section)
+  //if same will make close else open()
   const handleToggle = (section) => {
     setVisibleSection(section === visibleSection ? null : section);
   };
