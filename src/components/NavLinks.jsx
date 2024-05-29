@@ -6,16 +6,16 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnline from "../custom-hooks/useOnline";
-import AuthorContext from "../context/AuthorContext";
 import githubLogo from "../../public/images/github_Logo.svg";
+import { useAuthorContext } from "../context/AuthorContextProvider";
 
 const NavLinks = ({ className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-  const { author } = useContext(AuthorContext);
+  const { author } = useAuthorContext();
   return (
     <div className={className}>
       <NavLink

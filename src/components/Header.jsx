@@ -1,17 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import logo from "../../public/images/logo.png";
 import NavLinks from "./NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBurger, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import AuthorContext from "../context/AuthorContext";
+import { useAuthorContext } from "../context/AuthorContextProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  const { author } = useContext(AuthorContext);
+  const { author } = useAuthorContext();
   return (
     <div className=" fixed z-10 flex h-20 w-full items-center justify-between bg-white px-8 shadow-md">
       <div className="flex items-center">

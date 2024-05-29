@@ -1,17 +1,19 @@
-import React, { Suspense, lazy, useContext, useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./custom-hooks/useOnline";
 import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
-import AuthorContext from "./context/AuthorContext";
-import AuthorContextProvider from "./context/AuthorContextProvider";
+import {
+  AuthorContextProvider,
+  useAuthorContext,
+} from "./context/AuthorContextProvider";
 const Instamart = lazy(() => import("./pages/Instamart"));
 
 const App = () => {
   const isOnline = useOnline();
-  const { setAuthor } = useContext(AuthorContext);
+  const { setAuthor } = useAuthorContext();
   useEffect(() => {
     setAuthor({
       name: "Kiran Mahajan",

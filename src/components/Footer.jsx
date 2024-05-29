@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import AuthorContext from "../context/AuthorContext";
+import React from "react";
+import { useAuthorContext } from "../context/AuthorContextProvider";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { author } = useContext(AuthorContext);
+  const { author } = useAuthorContext();
   return (
     <div className="flex h-20 w-full items-center justify-center gap-1 bg-gray-300  text-center font-semibold shadow-md">
       <span> © {currentYear} All Rights Reserved </span>

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import AuthorContext from "./AuthorContext";
-const AuthorContextProvider = ({ children }) => {
+import React, { useState, createContext, useContext } from "react";
+
+const AuthorContext = createContext();
+
+export const AuthorContextProvider = ({ children }) => {
   const [author, setAuthor] = useState(null);
 
   return (
@@ -10,4 +12,4 @@ const AuthorContextProvider = ({ children }) => {
   );
 };
 
-export default AuthorContextProvider;
+export const useAuthorContext = () => useContext(AuthorContext);
