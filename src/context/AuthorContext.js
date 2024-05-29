@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from "react";
 
 const AuthorContext = createContext();
 
-export const AuthorContextProvider = ({ children }) => {
+export const AuthorProvider = ({ children }) => {
   const [author, setAuthor] = useState(null);
 
   return (
@@ -12,4 +12,4 @@ export const AuthorContextProvider = ({ children }) => {
   );
 };
 
-export const useAuthorContext = () => useContext(AuthorContext);
+export const useAuthor = () => useContext(AuthorContext);

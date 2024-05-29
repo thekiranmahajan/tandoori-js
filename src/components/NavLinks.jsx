@@ -10,12 +10,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnline from "../custom-hooks/useOnline";
 import githubLogo from "../../public/images/github_Logo.svg";
-import { useAuthorContext } from "../context/AuthorContextProvider";
+import { useAuthor } from "../context/AuthorContext";
 
 const NavLinks = ({ className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-  const { author } = useAuthorContext();
+  const { author } = useAuthor();
   return (
     <div className={className}>
       <NavLink

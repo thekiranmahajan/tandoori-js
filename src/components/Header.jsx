@@ -4,14 +4,14 @@ import NavLinks from "./NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBurger, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useAuthorContext } from "../context/AuthorContextProvider";
+import { useAuthor } from "../context/AuthorContext";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  const { author } = useAuthorContext();
+  const { author } = useAuthor();
   return (
     <div className=" fixed z-10 flex h-20 w-full items-center justify-between bg-white px-8 shadow-md">
       <div className="flex items-center">

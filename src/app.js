@@ -5,15 +5,12 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./custom-hooks/useOnline";
 import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
-import {
-  AuthorContextProvider,
-  useAuthorContext,
-} from "./context/AuthorContextProvider";
+import { AuthorProvider, useAuthor } from "./context/AuthorContext";
 const Instamart = lazy(() => import("./pages/Instamart"));
 
 const App = () => {
   const isOnline = useOnline();
-  const { setAuthor } = useAuthorContext();
+  const { setAuthor } = useAuthor();
   useEffect(() => {
     setAuthor({
       name: "Kiran Mahajan",
@@ -36,9 +33,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <AuthorContextProvider>
+      <AuthorProvider>
         <App />
-      </AuthorContextProvider>
+      </AuthorProvider>
     ),
     errorElement: <NotFound />,
     children: [
