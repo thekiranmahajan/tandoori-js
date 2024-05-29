@@ -1,14 +1,25 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useContext, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./custom-hooks/useOnline";
 import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
+import AuthorContext from "./context/AuthorContext";
+import AuthorContextProvider from "./context/AuthorContextProvider";
 const Instamart = lazy(() => import("./pages/Instamart"));
 
 const App = () => {
   const isOnline = useOnline();
+  const { setAuthor } = useContext(AuthorContext);
+  useEffect(() => {
+    setAuthor({
+      name: "Kiran Mahajan",
+      github_url: "https://github.com/thekiranmahajan",
+      linkedin_url: "https://www.linkedin.com/in/thekiranmahajan/",
+    });
+  }, []);
+
   return (
     <div className="flex min-h-screen w-full flex-col items-center  overflow-x-hidden bg-gray-200">
       <Header />
@@ -22,7 +33,11 @@ const App = () => {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <AuthorContextProvider>
+        <App />
+      </AuthorContextProvider>
+    ),
     errorElement: <NotFound />,
     children: [
       { path: "", element: <Home /> },
