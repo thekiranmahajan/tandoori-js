@@ -31,7 +31,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <NavLinks className="mr-5 hidden h-full max-w-[50%] items-center justify-around gap-8 p-10 font-semibold  md:flex" />
+      <NavLinks className="mr-5 hidden h-full max-w-[60%] items-center justify-around gap-8 p-10 font-semibold  md:flex" />
       <button
         onClick={toggleMenu}
         className={`transform text-3xl transition-transform duration-300 ease-in-out md:hidden ${
@@ -42,7 +42,7 @@ const Header = () => {
       </button>
 
       {isOpen && (
-        <NavLinks className=" absolute left-0 right-0 top-24 z-10 m-auto flex h-60 w-11/12 flex-col flex-wrap items-center justify-center gap-2  rounded-lg bg-gray-800 bg-opacity-30 text-lg font-semibold backdrop-blur-sm backdrop-filter md:hidden" />
+        <NavLinks className=" absolute left-0 right-0 top-24 z-10 m-auto flex h-96 w-11/12 flex-col flex-wrap items-center justify-center gap-3  rounded-lg bg-gray-800 bg-opacity-30 text-lg font-semibold backdrop-blur-sm backdrop-filter md:hidden" />
       )}
     </div>
   );

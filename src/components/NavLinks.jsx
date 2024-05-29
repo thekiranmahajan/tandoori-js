@@ -6,14 +6,16 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import useOnline from "../custom-hooks/useOnline";
+import AuthorContext from "../context/AuthorContext";
+import githubLogo from "../../public/images/github_Logo.svg";
 
 const NavLinks = ({ className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-
+  const { author } = useContext(AuthorContext);
   return (
     <div className={className}>
       <NavLink
@@ -70,6 +72,13 @@ const NavLinks = ({ className }) => {
         {isLoggedIn ? "Logout" : "Login"}
       </button>
       <span> {isOnline ? "🟢" : "🔴"}</span>
+      <a href={author?.github_url} target="_blank" rel="noopener noreferrer">
+        <img
+          className="h-9 w-9 rounded-full ring-4 ring-yellow-300"
+          src={githubLogo}
+          alt="GitHub Logo"
+        />
+      </a>
     </div>
   );
 };
