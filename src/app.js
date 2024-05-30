@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Header, Footer } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import useOnline from "./custom-hooks/useOnline";
+import useOnline from "./hooks/useOnline";
 import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
 import { AuthorProvider, useAuthor } from "./context/AuthorContext";

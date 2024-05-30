@@ -2,7 +2,7 @@ import { Carousel, SearchBar, RestaurantList } from "../components";
 import { HomeShimmerUI } from "../shimmers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import useRestaurants from "../custom-hooks/useRestaurants";
+import useRestaurants from "../hooks/useRestaurants";
 const Home = () => {
   const {
     carouselCards,

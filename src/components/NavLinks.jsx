@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import useOnline from "../custom-hooks/useOnline";
+import useOnline from "../hooks/useOnline";
 import githubLogo from "../../public/images/github_Logo.svg";
 import { useAuthor } from "../context/AuthorContext";
 import { useSelector } from "react-redux";

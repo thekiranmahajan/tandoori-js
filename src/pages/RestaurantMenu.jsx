@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { RestaurantMenuShimmerUI } from "../shimmers";
-import useRestaurantMenu from "../custom-hooks/useRestaurantMenu.js";
+import useRestaurantMenu from "../hooks/useRestaurantMenu.js";
 import { RestaurantMenuHeader } from "../components";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
@@ -23,12 +23,7 @@ const RestaurantMenu = () => {
         restaurantInfo={restaurantInfo}
         restaurantOffers={restaurantOffers}
       />
-      <button
-        onClick={handleAddItem}
-        className="w-30 h-10 rounded-lg bg-green-400"
-      >
-        Add Item
-      </button>
+      <div></div>
     </div>
   );
 };
