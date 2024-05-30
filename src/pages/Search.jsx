@@ -11,7 +11,7 @@ const Search = () => {
         <input
           onFocus={() => setIsTyping(!isTyping)}
           onBlur={() => setIsTyping(!isTyping)}
-          className="h-12 w-full truncate rounded-lg py-2 pl-6 pr-20 outline-none ring-yellow-300 focus:ring-4 md:pr-24"
+          className="h-12 w-full truncate rounded-lg py-2 pl-6 pr-20 outline-none ring-yellow-400 focus:ring-4 md:pr-24"
           type="text"
           placeholder="Search for restaurants to fulfill the bar of hunger 🍟..."
         />

@@ -76,10 +76,9 @@ const NavLinks = ({ className }) => {
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
       </button>
-      <span> {isOnline ? "🟢" : "🔴"}</span>
       <a href={author?.github_url} target="_blank" rel="noopener noreferrer">
         <img
-          className="h-9 w-9 rounded-full ring-4 ring-yellow-300"
+          className={`h-9 w-9 rounded-full ring-4 ${isOnline ? "ring-yellow-400" : "ring-red-400"}`}
           src={githubLogo}
           alt="GitHub Logo"
         />

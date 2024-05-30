@@ -20,7 +20,6 @@ const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
     totalRatingsString,
     costForTwoMessage,
   } = restaurantInfo;
-  console.log(restaurantOffers);
   return (
     <>
       <div className="mb-6 w-full text-left  text-[0.65rem] font-semibold text-gray-500 md:mb-10">
@@ -29,8 +28,8 @@ const RestaurantMenuHeader = ({ restaurantOffers, restaurantInfo }) => {
         <span className="text-gray-800">{name}</span>
       </div>
       <div className=" flex h-36 w-full items-center justify-between rounded-xl bg-gray-100 p-2">
-        <div className="flex flex-col gap-1 px-4">
-          <div className="text-xl font-bold">{name}</div>
+        <div className="flex flex-col gap-1 px-4 ">
+          <div className="text-lg font-bold md:text-xl">{name}</div>
           <div className="text-xs font-medium text-gray-400">
             {cuisines?.join(", ")}
           </div>

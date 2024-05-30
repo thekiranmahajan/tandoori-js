@@ -10,7 +10,7 @@ const RestaurantList = ({ restaurants }) => {
       {restaurants.length === 0 ? (
         <div className="m-10 flex flex-col items-center justify-center">
           <FontAwesomeIcon
-            className="text-[8rem] text-yellow-500 drop-shadow-xl"
+            className="text-[8rem] text-yellow-400 drop-shadow-xl"
             icon={faCircleExclamation}
           />
 
