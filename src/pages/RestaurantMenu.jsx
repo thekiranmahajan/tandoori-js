@@ -3,10 +3,17 @@ import { useParams } from "react-router-dom";
 import { RestaurantMenuShimmerUI } from "../shimmers";
 import useRestaurantMenu from "../custom-hooks/useRestaurantMenu.js";
 import { RestaurantMenuHeader } from "../components";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const { restaurantInfo, restaurantOffers } = useRestaurantMenu(resId);
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem("mango"));
+  };
 
   return restaurantInfo === null ? (
     <RestaurantMenuShimmerUI />
@@ -16,6 +23,12 @@ const RestaurantMenu = () => {
         restaurantInfo={restaurantInfo}
         restaurantOffers={restaurantOffers}
       />
+      <button
+        onClick={handleAddItem}
+        className="w-30 h-10 rounded-lg bg-green-400"
+      >
+        Add Item
+      </button>
     </div>
   );
 };

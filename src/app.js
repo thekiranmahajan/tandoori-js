@@ -6,6 +6,8 @@ import useOnline from "./custom-hooks/useOnline";
 import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
 import { AuthorProvider, useAuthor } from "./context/AuthorContext";
+import { Provider } from "react-redux";
+import store from "./store";
 const Instamart = lazy(() => import("./pages/Instamart"));
 
 const App = () => {
@@ -33,9 +35,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <AuthorProvider>
-        <App />
-      </AuthorProvider>
+      <Provider store={store}>
+        <AuthorProvider>
+          <App />
+        </AuthorProvider>
+      </Provider>
     ),
     errorElement: <NotFound />,
     children: [

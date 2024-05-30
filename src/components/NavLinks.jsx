@@ -11,11 +11,13 @@ import { NavLink } from "react-router-dom";
 import useOnline from "../custom-hooks/useOnline";
 import githubLogo from "../../public/images/github_Logo.svg";
 import { useAuthor } from "../context/AuthorContext";
+import { useSelector } from "react-redux";
 
 const NavLinks = ({ className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
   const { author } = useAuthor();
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className={className}>
       <NavLink
@@ -55,7 +57,10 @@ const NavLinks = ({ className }) => {
         }}
       >
         {({ isActive }) => (
-          <>{isActive && <FontAwesomeIcon icon={faCartPlus} />}Cart</>
+          <>
+            {isActive && <FontAwesomeIcon icon={faCartPlus} />}Cart(
+            {cartItems.length})
+          </>
         )}
       </NavLink>
       <NavLink
