@@ -43,12 +43,12 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #fddf47d6;
+    background: #facc15;
     border-radius: 5px;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #fd0101;
+    background: #000000;
   }
 }
