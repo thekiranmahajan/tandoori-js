@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { IMG_URL } from "../utils/constants";
 
 const RestaurantMenuSection = ({ title, itemCards }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="mt-2 flex w-full flex-col gap-2 rounded-xl  p-2  font-semibold">
+    <div className="mt-2 flex w-full cursor-pointer flex-col gap-2  rounded-xl p-2 font-semibold">
       <div
         onClick={() => setIsVisible((prev) => !prev)}
         className="mb-3 flex h-12 w-full items-center justify-between pl-10 pr-5"
@@ -15,7 +15,7 @@ const RestaurantMenuSection = ({ title, itemCards }) => {
           {title} <span>({itemCards?.length})</span>
         </h2>
         <FontAwesomeIcon
-          className={`cursor-pointer text-xl transition-all duration-300 ${isVisible ? "rotate-180" : "rotate-0"}`}
+          className={`text-xl transition-all duration-300 ${isVisible ? "rotate-180" : "rotate-0"}`}
           icon={faAngleUp}
         />
       </div>
