@@ -22,7 +22,6 @@ const useRestaurants = () => {
         data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
-      console.log(APICall);
       setAllRestaurants(APICall);
       setFilteredRestaurants(APICall);
       setCarouselCards(
