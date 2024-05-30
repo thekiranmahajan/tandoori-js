@@ -1,9 +1,8 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { Header, Footer } from "./components";
+import { Header, Footer, Offline, ScrollToTop } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useOnline from "./hooks/useOnline";
-import Offline from "./components/Offline";
 import { Home, About, Cart, NotFound, RestaurantMenu, Search } from "./pages";
 import { AuthorProvider, useAuthor } from "./context/AuthorContext";
 import { Provider } from "react-redux";
@@ -37,6 +36,7 @@ const router = createBrowserRouter([
     element: (
       <Provider store={store}>
         <AuthorProvider>
+          <ScrollToTop />
           <App />
         </AuthorProvider>
       </Provider>
