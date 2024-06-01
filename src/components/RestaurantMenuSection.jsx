@@ -1,14 +1,22 @@
-import { faAngleUp, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { IMG_URL } from "../utils/constants";
 import veg from "../../public/images/veg.svg";
 import nonVeg from "../../public/images/non-veg.svg";
 import TextExpansion from "./TextExpansion";
+import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice";
 
 const RestaurantMenuSection = ({ title, itemCards }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  console.log(itemCards);
+  const [isVisible, setIsVisible] = useState(true);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (itemObj) => {
+    console.log(itemObj);
+    dispatch(addItem(itemObj));
+  };
   return (
     <div className="mt-2 flex w-full cursor-pointer flex-col gap-2  rounded-xl p-2 font-semibold">
       <div
@@ -27,27 +35,22 @@ const RestaurantMenuSection = ({ title, itemCards }) => {
       <div
         className={`transition-all duration-300 ${isVisible ? "block opacity-100" : "hidden opacity-0"}`}
       >
-        {itemCards?.map(
-          (
-            {
-              card: {
-                info: {
-                  id,
-                  name,
-                  price,
-                  finalPrice,
-                  defaultPrice,
-                  imageId,
-                  description,
-                  ratings: {
-                    aggregatedRating: { rating, ratingCountV2 },
-                  },
-                  itemAttribute: { vegClassifier },
-                },
-              },
+        {itemCards?.map(({ card: { info } }) => {
+          const {
+            id,
+            name,
+            price,
+            finalPrice,
+            defaultPrice,
+            imageId,
+            description,
+            ratings: {
+              aggregatedRating: { rating, ratingCountV2 },
             },
-            i,
-          ) => (
+            itemAttribute: { vegClassifier },
+          } = info;
+
+          return (
             <div
               key={id}
               className="flex justify-between gap-3 border-b-2 border-gray-400 px-1 py-2 md:px-10 md:py-4"
@@ -88,17 +91,25 @@ const RestaurantMenuSection = ({ title, itemCards }) => {
               </div>
 
               <div className="flex items-center justify-center ">
-                <div className="h-32 w-32 rounded-xl  md:h-36 md:w-36">
+                <div className="relative h-32 w-32 rounded-xl  md:h-36 md:w-36">
                   <img
                     className="h-full w-full rounded-xl object-cover mix-blend-multiply"
                     src={IMG_URL + imageId}
                     alt="No Image"
                   />
+                  <Button
+                    onClick={() => handleAddItem(info)}
+                    btnText={"Add"}
+                    btnIcon={faPlus}
+                    className={
+                      "absolute -bottom-3 left-1/2 -translate-x-1/2 transform rounded-xl shadow-lg hover:bg-gray-700 active:scale-90"
+                    }
+                  />
                 </div>
               </div>
             </div>
-          ),
-        )}
+          );
+        })}
       </div>
     </div>
   );
