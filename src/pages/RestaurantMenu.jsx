@@ -7,7 +7,6 @@ import floralDesign from "../../public/images/floralDesign.svg";
 import { IMG_URL } from "../utils/constants.js";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const { restaurantInfo, restaurantOffers, restaurantMenuList } =
@@ -18,7 +17,10 @@ const RestaurantMenu = () => {
   return restaurantInfo === null ? (
     <RestaurantMenuShimmerUI />
   ) : (
-    <div className="mb-10 mt-8 flex min-h-screen w-4/5 select-none flex-col items-center pt-16 md:w-2/3">
+    <div
+      className="mb-10 mt-8 flex min-h-screen w-11/12
+     select-none flex-col items-center pt-16 md:w-2/3"
+    >
       <RestaurantMenuHeader
         restaurantInfo={restaurantInfo}
         restaurantOffers={restaurantOffers}

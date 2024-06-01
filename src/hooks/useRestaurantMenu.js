@@ -32,7 +32,7 @@ const useRestaurantMenu = (resId) => {
       );
     } catch (err) {
       console.log(
-        "Something went wrong while fetching RestaurantMenu API...😵",
+        "Something went wrong while fetching RestaurantMenu API...😵",err
       );
     }
   };
