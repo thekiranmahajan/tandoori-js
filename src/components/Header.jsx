@@ -13,7 +13,7 @@ const Header = () => {
   };
   const { author } = useAuthor();
   return (
-    <div className=" fixed z-10 flex h-20 w-full items-center justify-between bg-white px-8 shadow-md">
+    <div className=" fixed z-10 flex h-20 w-full items-center justify-between bg-white px-8 shadow-md md:pl-8 md:pr-0">
       <div className="flex items-center">
         <Link to="/">
           <img className="h-16" src={logo} alt="TandooriJs_Logo" />
@@ -31,7 +31,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <NavLinks className="mr-5 hidden h-full max-w-[60%] items-center justify-around gap-8 p-10 font-semibold  md:flex" />
+      <NavLinks className="mr-2 hidden h-full max-w-[80%] items-center justify-around gap-6  px-2  font-semibold md:flex" />
       <button
         onClick={toggleMenu}
         className={`transform text-3xl transition-transform duration-300 ease-in-out md:hidden ${
