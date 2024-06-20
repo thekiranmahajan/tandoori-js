@@ -10,7 +10,7 @@
 
 @layer components {
   .active-navlink {
-    @apply flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 transition-transform duration-500 hover:scale-110 hover:bg-[#1c1c24c2] hover:text-white md:bg-[#1c1c24] md:text-white;
+    @apply flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 transition-transform duration-500 hover:scale-110 hover:bg-[#1c1c24c2] hover:text-white lg:bg-[#1c1c24] lg:text-white;
   }
   .paragraph {
     @apply text-justify  text-gray-600 md:text-lg;
