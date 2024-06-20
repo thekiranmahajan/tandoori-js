@@ -6,22 +6,38 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnline from "../hooks/useOnline";
 import githubLogo from "../../public/images/github_Logo.svg";
 import { useAuthor } from "../context/AuthorContext";
 import { useSelector } from "react-redux";
 
-const NavLinks = ({ className }) => {
+const NavLinks = ({ setIsOpen = () => {}, className }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navSideMenuRef = useRef(null);
   const isOnline = useOnline();
   const { author } = useAuthor();
   const cartItems = useSelector((store) => store.cart.items);
+
+  const handleMenuOutsideClick = (e) => {
+    if (navSideMenuRef.current && !navSideMenuRef.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleMenuOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleMenuOutsideClick);
+    };
+  }, []);
+
   return (
-    <div className={className}>
+    <div ref={navSideMenuRef} className={className}>
       <NavLink
         to="/"
+        onClick={() => setIsOpen(false)}
         className={({ isActive }) => {
           return isActive ? "active-navlink" : "";
         }}
@@ -32,6 +48,7 @@ const NavLinks = ({ className }) => {
       </NavLink>
       <NavLink
         to="/search"
+        onClick={() => setIsOpen(false)}
         className={({ isActive }) => {
           return isActive ? "active-navlink" : "";
         }}
@@ -42,6 +59,7 @@ const NavLinks = ({ className }) => {
       </NavLink>
       <NavLink
         to="/about"
+        onClick={() => setIsOpen(false)}
         className={({ isActive }) => {
           return isActive ? "active-navlink" : "";
         }}
@@ -52,6 +70,7 @@ const NavLinks = ({ className }) => {
       </NavLink>
       <NavLink
         to="/cart"
+        onClick={() => setIsOpen(false)}
         className={({ isActive }) => {
           return isActive ? "active-navlink" : "";
         }}
@@ -65,6 +84,7 @@ const NavLinks = ({ className }) => {
       </NavLink>
       <NavLink
         to="/instamart"
+        onClick={() => setIsOpen(false)}
         className={({ isActive }) => {
           return isActive ? "active-navlink" : "";
         }}
