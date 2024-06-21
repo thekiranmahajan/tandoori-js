@@ -71,3 +71,7 @@ currently working on the react-router-dom part of it...
 #Some #Non #Related #Stuff #For #Post #Reach 😅
 
 #WebDevelopment #ReactJS #TailwindCSS #SwiggyClone #Namaste #AkshaySaini 
+
+## License
+
+[MIT License](LICENSE)
